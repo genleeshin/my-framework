@@ -5,8 +5,7 @@
 	| AboutController.php
 	| ContactController.php
 
-| pages
-	| index.php
+| views
 	| about.php
 	| contact.php
 	| home.php
