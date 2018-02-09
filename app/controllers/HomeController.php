@@ -1,7 +1,12 @@
 <?php 
-class HomeController{
+
+require('Controller.php');
+
+class HomeController extends Controller{
 	public function index()
 	{
-		include(DIR_VIEW . 'home.php');
+		$this->view('home.php');
 	}
+
+	
 }

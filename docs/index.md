@@ -1,6 +1,6 @@
 ## Setup
 ## Controllers
-## Views, Headers & Footers
+## Views, Layout
 ## validation
 ## Routing
 ## Database

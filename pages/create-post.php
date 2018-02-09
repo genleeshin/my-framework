@@ -1,3 +1,4 @@
+<h1><?=$posts?></h1>
 <form method="post" action="/index.php?page=PostController">
 <label>Post Title</label>
 <p>

@@ -10,9 +10,15 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'HomeController';
 // capture action params
 $action = isset($_GET['action']) ? $_GET['action'] : 'index';
 
+// process plugins beforeController
+// glob read all files in plugin directory
+// and call beforeController method if exists
+
 // now send output
 include(DIR_CONTROLLERS . $page. '.php');
 // classify
 $controller = new $page;
 // $controller->index();
 $controller->{$action}();
+
+// process plugins afterController
