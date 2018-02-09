@@ -204,4 +204,142 @@ iPhoneX::displaySize();
 
 ```
 
-## extends
+## Inheritance
+
+- consider this code
+
+```
+// inheritance.php
+
+class iPhone5{
+	public $name = 'iPhone 5';
+	public $displaySize = '5-inch';
+	public $ram = '512mb';
+
+	public function getRam()
+	{
+		echo $this->name . ' has ' . $this->ram . " ram \n";
+	}
+
+	public function getDisplaySize()
+	{
+		echo $this->name .  " has " . $this->displaySize . " display \n";
+	}
+}
+
+class iPhone6{
+	public $name = 'iPhone 6';
+	public $displaySize = '5.5-inch';
+	public $ram = '1gb';
+
+	public function getRam()
+	{
+		echo $this->name . ' has '. $this->ram . " ram \n";
+	}
+
+	public function getDisplaySize()
+	{
+		echo $this->name .  " has " . $this->displaySize . " display \n";
+	}
+}
+
+// iphone 5
+
+$iphone5 = new iPhone5;
+
+$iphone5->getRam();
+$iphone5->getDisplaySize();
+
+// iphone 6
+
+$iphone6 = new iPhone6;
+
+$iphone6->getRam();
+$iphone6->getDisplaySize();
+
+```
+
+- do you see any problem
+- yes, we are repeating the same code, which is very bad practice in OOP
+- you do not write same code twice
+- so how do we solve this problem
+- lets create a class `iPhone`
+- and make 'iPhone5' & 'iPhone6' inherits from it
+
+```
+class iPhone{
+	public function getRam()
+	{
+		echo $this->name . ' has '. $this->ram . " ram \n";
+	}
+
+	public function getDisplaySize()
+	{
+		echo $this->name .  " has " . $this->displaySize . " display \n";
+	}
+}
+
+class iPhone5 extends iPhone{
+	public $name = 'iPhone 5';
+	public $displaySize = '5-inch';
+	public $ram = '512mb';
+
+}
+
+class iPhone6 extends iPhone{
+	public $name = 'iPhone 6';
+	public $displaySize = '5.5-inch';
+	public $ram = '1gb';
+}
+
+// iphone 5
+
+$iphone5 = new iPhone5;
+
+$iphone5->getRam();
+$iphone5->getDisplaySize();
+
+// iphone 6
+
+$iphone6 = new iPhone6;
+
+$iphone6->getRam();
+$iphone6->getDisplaySize();
+
+```
+
+- and it still works the same
+
+- now add another class `iPhone7` but don't declare any variables
+- and see what happens
+
+
+```
+
+	class iPhone7 extends iPhone{
+		// public $name = 'iPhone 6';
+		// public $displaySize = '5.5-inch';
+		// public $ram = '1gb';
+	}
+
+	// instantiate iphone 7
+
+	$iphone7 = new iPhone7;
+	$iphone7->getRam();
+
+```
+- since, we have not declared any property, it will throw errors
+- let's define some default properties & now see what happens
+
+```
+class iPhone{
+	// defaults
+	public $name = 'iPhone Unknown';
+	public $displaySize = 'xx-inch';
+	public $ram = 'xxmb';
+
+	....
+}
+````
+
+- child properties override parent properties
